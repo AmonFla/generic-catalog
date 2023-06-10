@@ -289,7 +289,7 @@ return [
     |
     */
 
-    'menu' => [
+ /*   'menu' => [
         // Navbar items:
         [
             'type'         => 'navbar-search',
@@ -383,6 +383,20 @@ return [
             'icon_color' => 'cyan',
             'url'        => '#',
         ],
+    ],
+*/
+    'menu' => [
+        // Navbar items:
+
+        // Sidebar items:
+
+        ['header' => 'settings'],
+        [
+            'text' => 'users',
+            'url'  => 'users',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+
     ],
 
     /*
