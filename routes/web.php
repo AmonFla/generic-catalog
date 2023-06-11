@@ -30,7 +30,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
     Route::resource('users', UserController::class);
-    Route::resource('images', ImageCrudController::class);
+    Route::resource('img', ImageCrudController::class);
     Route::resource('categories', CategoryCrudController::class);
     Route::resource('types', TypeCrudController::class);
 });

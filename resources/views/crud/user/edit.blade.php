@@ -28,7 +28,7 @@
       </div>
       <div class="row">
         <x-adminlte-select name="user_type" label="Tipo de usuario" fgroup-class="col-md-6">
-          <x-adminlte-options :options="App\Enums\UserType::values()" selected="$user->user_type" />
+          <x-adminlte-options :options="App\Enums\UserType::values()" :selected="[$user->user_type]" />
         </x-adminlte-select>
       </div>
       <div class="row">

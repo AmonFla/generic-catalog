@@ -390,6 +390,11 @@ return [
 
         // Sidebar items:
 
+        [
+            'text' => 'images',
+            'url'  => 'img',
+            'icon' => 'fas fa-fw fa-image',
+        ],
         ['header' => 'settings'],
         [
             'text' => 'users',
@@ -514,6 +519,26 @@ return [
                 ],
             ],
         ],
+        'BsCustomFileInput' => [
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/bs-custom-file-input/bs-custom-file-input.min.js',
+                ],
+            ],
+        ],
+        'ekkoLightbox' => [
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/ekko-lightbox/ekko-lightbox.min.js',
+                ],
+            ],
+        ]
     ],
 
     /*

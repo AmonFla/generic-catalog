@@ -12,4 +12,9 @@ class Category extends Model
     protected $fillable = [
         'name',
     ];
+
+    public function images(): HasMany
+    {
+        return $this->hasMany(Image::class,'category');
+    }
 }
