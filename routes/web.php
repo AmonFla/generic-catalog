@@ -31,6 +31,7 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
     Route::resource('users', UserController::class);
     Route::resource('img', ImageCrudController::class);
+    Route::get('/img/enable/{id}', [ImageCrudController::class, 'enable'])->name('img.enable');
     Route::resource('categories', CategoryCrudController::class);
     Route::resource('types', TypeCrudController::class);
 });

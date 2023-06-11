@@ -16,7 +16,7 @@ class ImageCrudController extends Controller
      */
     public function index()
     {
-        $images = Image::all();
+        $images = Image::orderBy('posicion','asc')->get();
         return view('crud.images.index', compact('images'));
     }
 
@@ -44,8 +44,14 @@ class ImageCrudController extends Controller
             'name' => 'required',
             'image' => 'required',
             'category' => 'required',
-            'producto' => 'required'
+            'producto' => 'required',
+            'posicion' => 'required'
         ]);
+
+        $activa = false;
+        if(empty($request->get('activa'))){
+            $activa = $request->get('activa');
+        }
 
         $imageName = $this->saveImage($request->file('image'));
         // Create the type
@@ -54,6 +60,8 @@ class ImageCrudController extends Controller
             'category' => $validatedData['category'],
             'producto' => $validatedData['producto'],
             'image' => $imageName,
+            'posicion' => $validatedData['posicion'],
+            'activa' => $activa
         ]);
 
 
@@ -97,8 +105,14 @@ class ImageCrudController extends Controller
         $validatedData = $request->validate([
             'name' => 'required',
             'category' => 'required',
-            'producto' => 'required'
+            'producto' => 'required',
+            'posicion' => 'required'
         ]);
+
+        $activa = false;
+        if(empty($request->get('activa'))){
+            $activa = $request->get('activa');
+        }
 
         $file =   $request->file('image');
 
@@ -112,6 +126,8 @@ class ImageCrudController extends Controller
         $image->name = $validatedData['name'];
         $image->producto = $validatedData['producto'];
         $image->category = $validatedData['category'];
+        $image->posicion = $validatedData['posicion'];
+        $image->activa = $activa;
         $image->save();
 
         // Redirect to the categories page
@@ -126,6 +142,17 @@ class ImageCrudController extends Controller
         $image = Image::findOrFail($id);
         File::delete(public_path('upload/'.$image->image));
         $image->delete();
+        return redirect()->route('img.index');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function enable(string $id)
+    {
+        $image = Image::findOrFail($id);
+        $image->activa = !$image->activa;
+        $image->save();
         return redirect()->route('img.index');
     }
 

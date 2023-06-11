@@ -14,7 +14,9 @@ class Image extends Model
         'name',
         'image',
         'category',
-        'producto'
+        'producto',
+        'activa',
+        'posicion'
     ];
 
     /**

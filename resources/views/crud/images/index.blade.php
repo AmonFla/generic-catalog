@@ -21,6 +21,8 @@
           <th>Nombre</th>
           <th>Categoría</th>
           <th>Tipo</th>
+          <th>Posición</th>
+          <th>Activa</th>
           <th>Thumb</th>
           <th>Actions</th>
         </tr>
@@ -31,6 +33,8 @@
           <td>{{ $image->name }}</td>
           <td>{{ $image->categories->name }}</td>
           <td>{{ $image->type->name }}</td>
+          <td>{{ $image->posicion }}</td>
+          <td>{{ $image->activa ? 'Sí' : 'No' }}</td>
           <td>
             <a href="{{ url('img/cache/original/' . $image->image) }}" data-toggle="lightbox"
               data-title="{{ $image->name }}" data-gallery="gallery">
@@ -46,6 +50,11 @@
               @method('DELETE')
               <x-adminlte-button onclick="return confirm('{{ __('Seguro??') }}');" label="" theme="danger"
                 icon="fas fa-trash" type="submit" />
+
+              <a href="{{ route('img.enable', $image->id) }}">
+                <x-adminlte-button label="" theme="warning"
+                  icon=" {{ $image->activa ? 'fas fa-eye-slash' : 'fas fa-eye' }}" />
+              </a>
 
             </form>
 

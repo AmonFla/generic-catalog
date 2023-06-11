@@ -25,6 +25,14 @@
         </x-adminlte-select>
       </div>
       <div class="row">
+        <x-adminlte-select name="activa" label="ACtiva" fgroup-class="col-md-6">
+          <x-adminlte-options :options="['true' => 'Sí', 'false' => 'No']" />
+        </x-adminlte-select>
+      </div>
+      <div class="row">
+        <x-adminlte-input name="posicion" label="Nombre" placeholder="Posición" fgroup-class="col-md-6" value='0' />
+      </div>
+      <div class="row">
         {{-- Placeholder, sm size and prepend icon --}}
         <x-adminlte-input-file label="Imagen" name="image" igroup-size="sm" placeholder="seleccione una imagen..."
           fgroup-class="col-md-6">
