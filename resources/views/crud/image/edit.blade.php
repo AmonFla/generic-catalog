@@ -9,13 +9,16 @@
 @section('content')
   {{-- Minimal without header / body only --}}
   <x-adminlte-card theme="info" theme-mode="outline" title="Crear nuevo usuario" enctype="multipart/form-data">
-    <form action="{{ route('users.store') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('users.update', $user->id) }}" method="post" enctype="multipart/form-data">
       @csrf
+      @method('PUT')
       <div class="row">
-        <x-adminlte-input name="name" label="Nombre" placeholder="Nombre" fgroup-class="col-md-6" />
+        <x-adminlte-input name="name" label="Nombre" value="{{ $user->name }}" placeholder="Nombre"
+          fgroup-class="col-md-6" />
       </div>
       <div class="row">
-        <x-adminlte-input name="email" label="eMail" placeholder="Correo Electrónico" fgroup-class="col-md-6" />
+        <x-adminlte-input name="email" label="eMail" value="{{ $user->email }}" placeholder="Correo Electrónico"
+          fgroup-class="col-md-6" />
       </div>
       <div class="row">
         <div class="form-group col-md-6">
@@ -25,14 +28,12 @@
       </div>
       <div class="row">
         <x-adminlte-select name="user_type" label="Tipo de usuario" fgroup-class="col-md-6">
-          <x-adminlte-options :options="App\Enums\UserType::values()" />
+          <x-adminlte-options :options="App\Enums\UserType::values()" selected="$user->user_type" />
         </x-adminlte-select>
       </div>
       <div class="row">
         <x-adminlte-button label="Guardar" theme="primary" type="submit" />
-        <a href="{{ route('users.index') }}">
-          <x-adminlte-button label="Cancelar" theme="danger" />
-        </a>
+        <x-adminlte-button label="Cancelar" theme="danger" type="reset" />
       </div>
     </form>
   </x-adminlte-card>

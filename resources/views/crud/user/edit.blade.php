@@ -8,7 +8,7 @@
 
 @section('content')
   {{-- Minimal without header / body only --}}
-  <x-adminlte-card theme="info" theme-mode="outline" title="Crear nuevo usuario" enctype="multipart/form-data">
+  <x-adminlte-card theme="info" theme-mode="outline" title="Editar un usuario" enctype="multipart/form-data">
     <form action="{{ route('users.update', $user->id) }}" method="post" enctype="multipart/form-data">
       @csrf
       @method('PUT')
@@ -33,7 +33,9 @@
       </div>
       <div class="row">
         <x-adminlte-button label="Guardar" theme="primary" type="submit" />
-        <x-adminlte-button label="Cancelar" theme="danger" type="reset" />
+        <a href="{{ route('users.index') }}">
+          <x-adminlte-button label="Cancelar" theme="danger" />
+        </a>
       </div>
     </form>
   </x-adminlte-card>

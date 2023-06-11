@@ -40,7 +40,7 @@ class UserController extends Controller
         // Create the user
         $user = User::create($validatedData);
 
-        // Redirect to the user's detail page
+        // Redirect to the user list page
         return redirect()->route('users.index');
     }
 
@@ -85,8 +85,8 @@ class UserController extends Controller
         // Update the user
         $user->update($validatedData);
 
-        // Redirect to the user's detail page
-        return redirect()->route('users.index', $user->id);
+        // Redirect to the user list page
+        return redirect()->route('users.index');
     }
 
     /**

@@ -18,4 +18,7 @@ return [
     'information'                   => 'Información',
     'settings'                      => 'AJUSTES',
     'users'                         => 'Usuarios',
+    'categories'                    => 'Categorias',
+    'product-types'                 => 'Tipos de Productos',
+    'images'                        => 'Imágenes'
 ];

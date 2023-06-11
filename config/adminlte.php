@@ -396,6 +396,16 @@ return [
             'url'  => 'users',
             'icon' => 'fas fa-fw fa-user',
         ],
+        [
+            'text' => 'categories',
+            'url'  => 'categories',
+            'icon' => 'fas fa-fw fa-list',
+        ],
+        [
+            'text' => 'product-types',
+            'url'  => 'types',
+            'icon' => 'fas fa-fw fa-list',
+        ],
 
     ],
 

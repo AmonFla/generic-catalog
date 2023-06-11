@@ -30,9 +30,7 @@
       </div>
       <div class="row">
         <x-adminlte-button label="Guardar" theme="primary" type="submit" />
-        <a href="{{ route('users.index') }}">
-          <x-adminlte-button label="Cancelar" theme="danger" />
-        </a>
+        <x-adminlte-button label="Cancelar" theme="danger" type="reset" />
       </div>
     </form>
   </x-adminlte-card>
